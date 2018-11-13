@@ -15,13 +15,13 @@ describe "Roque" {
 		viaje2.largo(2000)
 		
 		roque.actividadesQueRealizo([viaje1, viaje2])
-		roque.idiomasSocio(#{"espanol"})
-		roque.edad(25)
+		
 	}
 
 		test "testRoq" {
-
-		assert.that(roque.esAdoradorDelSol())
+			
+			assert.that(roque.esAdoradorDelSol())
+		    assert.equals([viaje2], roque.actividadesEsforzadas())
 
 	}
 	

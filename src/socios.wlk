@@ -10,11 +10,13 @@ class Socio {
 	var property idiomasSocio = #{}
 	
 	method esAdoradorDelSol() { 
-		return self.actividadesQueRealizo().all(actividadesQueRealizo.sirveParaBroncearse(true))
+		return self.actividadesQueRealizo().all({actividad => actividad.sirveParaBroncearse()})
 	}
+	
 	method actividadesEsforzadas() { 
-		self.actividadesQueRealizo().filter( actividadesQueRealizo.implicaEsfuerzo())
+		return self.actividadesQueRealizo().filter({ actividad => actividad.implicaEsfuerzo()})
 	}
+	
 	method realizaActividad(actividad) { if 
 		( actividadesQueRealizo = self.maxActividades()) {
 			self.error("Ya no puede realizar mas actividades.")
