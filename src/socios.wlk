@@ -4,7 +4,7 @@ import viajes.*
 class Socio {
 	
 	var property maxActividades = 0
-	var property actividadesQueRealizo = []
+	var property  actividadesQueRealizo = []
 	
 	var property edad = 0
 	var property idiomasSocio = #{}
@@ -18,10 +18,10 @@ class Socio {
 	}
 	
 	method realizaActividad(actividad) { if 
-		( actividadesQueRealizo = self.maxActividades()) {
+		( actividadesQueRealizo.size() == self.maxActividades()) {
 			self.error("Ya no puede realizar mas actividades.")
 		}
-		actividad.add(actividad)
+		actividadesQueRealizo.add(actividad)
 	}
 	
 	
