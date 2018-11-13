@@ -1,0 +1,33 @@
+import viajes.*
+import gimnasia.*
+import socios.*
+import taller.*
+
+describe "Ana" {
+	const ana = new Socio(maxActividades = 3) 
+	
+	const viaje1 = new Playa()
+	const viaje2 = new Playa()
+	const gym = new ClasesGimnasia()
+	
+	
+	fixture {
+		viaje1.largo(1000)
+		viaje2.largo(2000)
+		
+		ana.actividadesQueRealizo([viaje1, viaje2, gym])
+		
+	}
+
+		test "testAna" {
+			
+			assert.notThat(ana.esAdoradorDelSol())
+		    assert.equals([viaje2, gym], ana.actividadesEsforzadas())
+
+	}
+	
+	
+}
+	
+
+	
