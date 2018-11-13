@@ -1,0 +1,70 @@
+import viajes.*
+import gimnasia.*
+import socios.*
+import taller.*
+
+describe "test ciudades y trekking" {
+	
+	const ciunormal = new Ciudad( atracciones = 4 )
+	const ciutrop = new CiudadTropical(atracciones = 4 )
+	const ciunormal1 = new Ciudad(atracciones = 8 )
+	const ciutrop1 = new CiudadTropical(atracciones = 8 )
+	const ciutrop2 = new CiudadTropical(atracciones = 10 )
+	
+	const salida1 = new Trekking(kmSenderos = 100, diasDeSol = 130)
+	const salida2 = new Trekking(kmSenderos = 50, diasDeSol = 240)
+	const salida3 = new Trekking(kmSenderos = 250, diasDeSol = 130)
+	
+	test "trekking1" {
+		assert.equals(2, salida1.diasQueLleva())
+		assert.that(salida1.implicaEsfuerzo())
+		assert.notThat(salida1.sirveParaBroncearse())
+	}
+	test "trekking2" {
+		assert.equals(1, salida2.diasQueLleva())
+		assert.notThat(salida2.implicaEsfuerzo())
+		assert.that(salida2.sirveParaBroncearse())
+	}
+	test "trekking3" {
+		assert.equals(5, salida3.diasQueLleva())
+		assert.that(salida3.implicaEsfuerzo())
+		assert.that(salida3.sirveParaBroncearse())
+	}
+	
+	
+	test "testCiudadNormal1" {
+		
+		assert.equals(2, ciunormal.diasQueLleva())
+		assert.notThat(ciunormal.implicaEsfuerzo())
+		assert.notThat(ciunormal.sirveParaBroncearse())
+
+	}
+	
+	test "testCiudadTropi1" {
+		
+		assert.equals(3, ciutrop.diasQueLleva())
+		assert.notThat(ciutrop.implicaEsfuerzo())
+		assert.that(ciutrop.sirveParaBroncearse())
+	}
+	
+	test "testCiudadNorm2" {
+		
+		assert.equals(4, ciunormal1.diasQueLleva())
+		assert.that(ciunormal1.implicaEsfuerzo())
+		assert.notThat(ciunormal1.sirveParaBroncearse())
+	}
+	
+	test "testCiudadTropi2" {
+		
+		assert.equals(5, ciutrop1.diasQueLleva())
+		assert.that(ciutrop1.implicaEsfuerzo())
+		assert.that(ciutrop1.sirveParaBroncearse())
+	}
+	
+	test "testCiudadTropi3" {
+		
+		assert.equals(6, ciutrop2.diasQueLleva())
+		assert.notThat(ciutrop2.implicaEsfuerzo())
+		assert.that(ciutrop2.sirveParaBroncearse())
+	}
+}

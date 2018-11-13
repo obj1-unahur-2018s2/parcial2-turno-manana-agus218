@@ -1,0 +1,32 @@
+import viajes.*
+import gimnasia.*
+import socios.*
+import taller.*
+
+describe "Roque" {
+	const roque = new Socio(maxActividades = 2) 
+	
+	const viaje1 = new Playa()
+	const viaje2 = new Playa()
+	
+	
+	fixture {
+		viaje1.largo(1000)
+		viaje2.largo(2000)
+		
+		roque.actividadesQueRealizo([viaje1, viaje2])
+		roque.idiomasSocio(#{"espanol"})
+		roque.edad(25)
+	}
+
+		test "testRoq" {
+
+		assert.that(roque.esAdoradorDelSol())
+
+	}
+	
+	
+}
+	
+
+	
